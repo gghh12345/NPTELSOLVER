@@ -24,6 +24,7 @@ Desktop.ini
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+attachments/
 
 # IDE / Editor folders
 .vscode/
