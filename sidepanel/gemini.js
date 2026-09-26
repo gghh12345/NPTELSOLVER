@@ -1,12 +1,12 @@
 /**
  * AI Solver Client for NPTEL Pro Solver
- * Supports Google Gemini 2.5 Flash, Gemini 1.5 Flash, and Groq Llama 3.3 70B
+ * Supports Google Gemini 2.0 Flash, Gemini 1.5 Flash, and Groq Llama 3.3 70B
  * with multimodal diagrams and robust error handling.
  */
 
 class GeminiSolverClient {
   constructor() {
-    this.primaryModel = 'gemini-2.5-flash';
+    this.primaryModel = 'gemini-2.0-flash';
     this.fallbackModel = 'gemini-1.5-flash';
   }
 
@@ -16,6 +16,10 @@ class GeminiSolverClient {
   async getEffectiveApiKey() {
     try {
       const stored = await chrome.storage.local.get(['custom_api_key', 'preferred_model']);
+      let preferredModel = stored.preferred_model;
+      if (preferredModel === 'gemini-2.5-flash') {
+        preferredModel = 'gemini-2.0-flash';
+      }
       if (stored.custom_api_key && stored.custom_api_key.trim().length > 10) {
         const key = stored.custom_api_key.trim();
         const isGroq = key.startsWith('gsk_');
@@ -23,7 +27,7 @@ class GeminiSolverClient {
           key,
           source: 'CUSTOM',
           provider: isGroq ? 'GROQ' : 'GEMINI',
-          model: stored.preferred_model || (isGroq ? 'llama-3.3-70b-versatile' : this.primaryModel)
+          model: preferredModel || (isGroq ? 'llama-3.3-70b-versatile' : this.primaryModel)
         };
       }
     } catch (err) {

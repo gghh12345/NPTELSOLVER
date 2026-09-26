@@ -12,7 +12,7 @@
 
   🌟 KEY FEATURES:
   • 100% Verified Answer Bank: Instantly recognizes repeated questions from past semesters and matches official solutions.
-  • Multimodal AI Solving: Solves complex questions including text, mathematical formulas, and circuit/diagram screenshots using Gemini 2.5 Flash.
+  • Multimodal AI Solving: Solves complex questions including text, mathematical formulas, and circuit/diagram screenshots using Gemini 2.0 Flash.
   • Review & Highlight Mode: Prefer safety? Enable Highlight Mode to glow the recommended option in emerald green without auto-clicking.
   • One-Click Auto-Fill: Easily applies answers directly into the assignment form with full native DOM validation events.
   • Step-by-Step Derivations: View clear, logical explanations, formulas, and confidence ratings for every question.

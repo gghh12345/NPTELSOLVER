@@ -794,10 +794,10 @@ async function loadSavedSettings() {
       if (keyNoticeBanner) keyNoticeBanner.classList.remove('hidden');
     }
 
-    if (stored.preferred_model) {
+    if (stored.preferred_model && stored.preferred_model !== 'gemini-2.5-flash') {
       modelSelect.value = stored.preferred_model;
     } else {
-      modelSelect.value = 'gemini-2.5-flash';
+      modelSelect.value = 'gemini-2.0-flash';
     }
   } catch (e) {
     console.warn('Error loading settings:', e);

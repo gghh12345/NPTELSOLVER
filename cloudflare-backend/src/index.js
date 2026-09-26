@@ -55,12 +55,10 @@ let roundRobinGeminiIndex = 0;
 let roundRobinGroqIndex = 0;
 
 const GEMINI_MODELS = [
-  'gemini-flash-latest',
-  'gemini-2.5-flash',
-  'gemini-flash-lite-latest',
-  'gemini-2.5-flash-lite',
-  'gemini-3.5-flash',
-  'gemini-3.6-flash'
+  'gemini-2.0-flash',
+  'gemini-1.5-flash',
+  'gemini-2.0-flash-lite',
+  'gemini-1.5-pro'
 ];
 
 function parseKeyPool(rawEnvVal) {

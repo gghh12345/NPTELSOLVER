@@ -6,7 +6,7 @@ A state-of-the-art Chrome Extension (Manifest V3) for NPTEL & Swayam courses. It
 
 ## ✨ Features
 
-- **Hybrid Intelligence**: Checks the verified past assignment answer bank first (0 ms latency, 100% accuracy); falls back to Gemini 2.5 Flash if needed.
+- **Hybrid Intelligence**: Checks the verified past assignment answer bank first (0 ms latency, 100% accuracy); falls back to Gemini 2.0 Flash if needed.
 - **Dual API Key Support**: Works immediately out-of-the-box in **Auto Default Mode**, or lets you paste your own free Gemini API key in Settings for unlimited private requests.
 - **Chrome Side Panel**: Unobtrusively docks alongside your assignment without covering questions or formulas.
 - **Safe Review Mode**: Choose between "Highlight Only" (glows the correct answer in emerald green with a confidence pill) or "Auto-Fill" (safely selects the radio/checkbox).
