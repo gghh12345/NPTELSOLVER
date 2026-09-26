@@ -7,6 +7,8 @@
   "scripts": {
     "login": "wrangler login",
     "dev": "wrangler dev",
+    "dev:local": "node ../local_server.mjs",
+    "start": "node ../local_server.mjs",
     "create-db": "wrangler d1 create nptel-vault",
     "init-db": "wrangler d1 execute nptel-vault --remote --file=./schema.sql",
     "init-db:local": "wrangler d1 execute nptel-vault --local --file=./schema.sql",

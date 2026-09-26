@@ -2,9 +2,11 @@
 node_modules/
 package-lock.json.bak
 
-# Wrangler / Cloudflare
+# Wrangler / Cloudflare / Local DB
 .wrangler/
 .mf/
+*.sqlite
+*.sqlite3
 
 # Environment and secrets
 .env

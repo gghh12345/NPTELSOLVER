@@ -37,9 +37,31 @@ A state-of-the-art Chrome Extension (Manifest V3) for NPTEL & Swayam courses. It
 
 ---
 
-## 🧪 Local Testing
+## 🧪 Local Testing & Development
 
-You can test the extension offline immediately without an active NPTEL session:
-1. Double-click or open `test/mock_nptel.html` in Chrome.
-2. Open the Side Panel and click **"Scan Page"**.
-3. Watch questions match against the verified question bank instantly!
+You can test the entire system (Backend API + Mock Assignment) locally out-of-the-box:
+
+### 1. Start the Local Server
+```bash
+# On Linux / macOS:
+./run_local.sh
+# Or via npm:
+npm start
+
+# On Windows:
+run_local.bat
+```
+
+### 2. Available Local Endpoints
+- **Developer & Testing Dashboard**: [http://127.0.0.1:8787](http://127.0.0.1:8787) or [http://localhost:3000](http://localhost:3000)
+- **Local Mock Assignment**: [http://127.0.0.1:8787/mock_nptel.html](http://127.0.0.1:8787/mock_nptel.html)
+- **Backend Health Check**: [http://127.0.0.1:8787/api/health](http://127.0.0.1:8787/api/health)
+- **Database Stats**: [http://127.0.0.1:8787/api/stats](http://127.0.0.1:8787/api/stats)
+
+### 3. Test with the Chrome Extension
+1. Open Chrome and go to `chrome://extensions/`.
+2. Enable **Developer mode** (top-right).
+3. Click **Load unpacked** and select this project directory.
+4. Visit [http://127.0.0.1:8787/mock_nptel.html](http://127.0.0.1:8787/mock_nptel.html).
+5. Open the Side Panel (<kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>), click **Scan Page**, and click **Solve All**!
+

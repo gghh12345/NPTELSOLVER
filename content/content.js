@@ -12,8 +12,8 @@ let cachedQuestions = [];
 function cleanText(str) {
   if (!str) return '';
   return str
-    .replace(/⚡\s*Solve\s*with\s*AI/gi, '')
-    .replace(/✓\s*(100%\s*Verified\s*Key|AI\s*Choice\s*\(\d+%\))/gi, '')
+    .replace(/(⚡\s*)?Solve\s*with\s*AI/gi, '')
+    .replace(/(✓\s*)?(100%\s*Verified\s*Key|Verified\s*100%|AI\s*Choice\s*\(\d+%\))/gi, '')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -247,7 +247,7 @@ function injectInlineAssistants() {
 
     const btn = document.createElement('button');
     btn.className = 'nptel-pro-inline-solve-btn';
-    btn.innerHTML = '<span>⚡</span> Solve with AI';
+    btn.innerHTML = 'Solve with AI';
     btn.title = `Solve Question ${q.qNum} in Side Panel`;
 
     btn.addEventListener('click', (e) => {
@@ -270,7 +270,7 @@ function injectInlineAssistants() {
 }
 
 /**
- * Visually highlight the chosen option in emerald green
+ * Visually highlight the chosen option
  */
 function highlightOption(qIndex, optionIndex, isVerified = false, confidence = 95) {
   if (!cachedQuestions[qIndex]) {
@@ -289,13 +289,13 @@ function highlightOption(qIndex, optionIndex, isVerified = false, confidence = 9
   });
   q.container.querySelectorAll('.nptel-pro-badge').forEach(el => el.remove());
 
-  // Apply new glow highlight
+  // Apply new outline highlight
   choiceWrapper.classList.add('nptel-pro-highlight-option');
 
   // Attach verification pill
   const badge = document.createElement('span');
   badge.className = isVerified ? 'nptel-pro-badge' : 'nptel-pro-badge ai-badge';
-  badge.innerText = isVerified ? '✓ 100% Verified Key' : `✓ AI Choice (${confidence}%)`;
+  badge.innerText = isVerified ? 'Verified 100%' : `AI Choice (${confidence}%)`;
   choiceWrapper.appendChild(badge);
 }
 

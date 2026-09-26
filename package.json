@@ -1,0 +1,11 @@
+{
+  "name": "nptel-pro-solver",
+  "version": "1.0.0",
+  "description": "NPTEL Pro Solver - Chrome Extension & Local Vault Backend",
+  "type": "module",
+  "scripts": {
+    "start": "node local_server.mjs",
+    "dev": "node local_server.mjs",
+    "server": "node local_server.mjs"
+  }
+}

@@ -313,6 +313,10 @@ async function getEffectiveBackendUrl() {
     if (storedConfig.backend_url && storedConfig.backend_url.trim().length > 0) {
       return storedConfig.backend_url.trim();
     }
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (tab && tab.url && (tab.url.includes('localhost') || tab.url.includes('127.0.0.1'))) {
+      return 'http://127.0.0.1:8787';
+    }
   } catch (_) {}
   return 'https://nptel-pro-solver-api.unknowniphone724.workers.dev';
 }
@@ -484,9 +488,9 @@ function renderQuestionCard(q) {
       ${isSolved ? renderSolutionBoxHtml(q.qIndex, solvedAnswersMap[q.qIndex]) : ''}
     </div>
     <div class="q-card-actions">
-      <button class="btn btn-secondary btn-sm" data-action="quick-solve" data-qindex="${q.qIndex}">⚡ Quick Solve</button>
-      <button class="btn btn-secondary btn-sm" id="btnVision_${q.qIndex}" data-action="vision-solve" data-qindex="${q.qIndex}" title="Capture screenshot of page & solve using Gemini 3.6 Flash Multimodal Vision">📸 Vision Solve</button>
-      <button class="btn btn-emerald btn-sm" id="btnFillSingle_${q.qIndex}" data-action="fill-single" data-qindex="${q.qIndex}" ${!isSolved ? 'disabled' : ''}>Fill on Page</button>
+      <button class="btn btn-secondary btn-sm" data-action="quick-solve" data-qindex="${q.qIndex}">Solve</button>
+      <button class="btn btn-secondary btn-sm" id="btnVision_${q.qIndex}" data-action="vision-solve" data-qindex="${q.qIndex}" title="Capture screenshot of question & solve with Vision">Vision</button>
+      <button class="btn btn-primary btn-sm" id="btnFillSingle_${q.qIndex}" data-action="fill-single" data-qindex="${q.qIndex}" ${!isSolved ? 'disabled' : ''}>Apply</button>
     </div>
   `;
 
@@ -495,15 +499,15 @@ function renderQuestionCard(q) {
 
 function renderBadgeForSolution(sol) {
   if (sol.source === 'VERIFIED_CACHE' || sol.source === 'OFFICIAL_VAULT') {
-    return `<span class="badge badge-verified">✓ 100% Official Key</span>`;
+    return `<span class="badge badge-verified">Verified 100%</span>`;
   }
   if (sol.provider) {
-    return `<span class="badge badge-ai">⚡ ${escapeHtml(sol.provider)} (${sol.confidence}%)</span>`;
+    return `<span class="badge badge-ai">AI (${sol.confidence}%)</span>`;
   }
   if (sol.source === 'AI_VISION') {
-    return `<span class="badge badge-ai" style="background: rgba(168, 85, 247, 0.2); border-color: #a855f7; color: #d8b4fe;">📸 Vision AI (${sol.confidence}%)</span>`;
+    return `<span class="badge badge-ai">Vision (${sol.confidence}%)</span>`;
   }
-  return `<span class="badge badge-ai">⚡ AI (${sol.confidence}%)</span>`;
+  return `<span class="badge badge-ai">AI (${sol.confidence}%)</span>`;
 }
 
 function renderSolutionBoxHtml(qIndex, sol) {
@@ -518,7 +522,7 @@ function renderSolutionBoxHtml(qIndex, sol) {
         <span class="solution-answer-text">${label}</span>
         <span class="confidence-meter">${sol.confidence}% Confidence</span>
       </div>
-      <span class="q-reasoning-toggle" data-action="toggle-reasoning" data-qindex="${qIndex}">View Step-by-Step Derivation ▼</span>
+      <span class="q-reasoning-toggle" data-action="toggle-reasoning" data-qindex="${qIndex}">Explanation &bull; Step Derivation &darr;</span>
       <div class="q-reasoning-details" id="reasoning_${qIndex}">
         ${sol.keyFormula ? `<p style="margin-bottom: 4px;"><strong>Formula / Law:</strong> ${escapeHtml(sol.keyFormula)}</p>` : ''}
         <p>${escapeHtml(sol.reasoning)}</p>
@@ -822,9 +826,43 @@ function setupSettingsHandlers() {
       keyNoticeBanner.classList.add('hidden');
     }
 
-    settingsSaveStatus.innerText = '✓ Saved successfully!';
-    setTimeout(() => { settingsSaveStatus.innerText = ''; }, 3000);
+    settingsSaveStatus.innerText = 'Saved.';
+    setTimeout(() => { settingsSaveStatus.innerText = ''; }, 2500);
   });
+
+  const btnClearCache = document.getElementById('btnClearCache');
+  const cacheStatusText = document.getElementById('cacheStatusText');
+  if (btnClearCache) {
+    btnClearCache.addEventListener('click', async () => {
+      await chrome.storage.local.remove(['nptel_learned_cache']);
+      if (cacheStatusText) {
+        cacheStatusText.innerText = 'Local cache cleared.';
+        setTimeout(() => { cacheStatusText.innerText = ''; }, 2500);
+      }
+    });
+  }
+
+  // Sync mode radio buttons with toggleHighlightOnly
+  const modeAutoFill = document.getElementById('modeAutoFill');
+  const modeHighlight = document.getElementById('modeHighlight');
+  if (modeAutoFill && modeHighlight) {
+    modeAutoFill.addEventListener('change', () => {
+      if (modeAutoFill.checked && toggleHighlightOnly) {
+        toggleHighlightOnly.checked = false;
+      }
+    });
+    modeHighlight.addEventListener('change', () => {
+      if (modeHighlight.checked && toggleHighlightOnly) {
+        toggleHighlightOnly.checked = true;
+      }
+    });
+    if (toggleHighlightOnly) {
+      toggleHighlightOnly.addEventListener('change', () => {
+        if (toggleHighlightOnly.checked) modeHighlight.checked = true;
+        else modeAutoFill.checked = true;
+      });
+    }
+  }
 
   bankSearchInput.addEventListener('input', (e) => {
     renderQuestionBank(e.target.value);

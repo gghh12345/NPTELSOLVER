@@ -5,59 +5,74 @@
   <title>Mock NPTEL Assignment - Test Portal</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #fafafa;
       margin: 0;
       padding: 30px;
-      color: #1e293b;
+      color: #18181b;
+      -webkit-font-smoothing: antialiased;
     }
     .gcb-product-headers-large {
-      font-size: 24px;
-      font-weight: bold;
-      color: #0f172a;
+      font-size: 20px;
+      font-weight: 700;
+      color: #09090b;
       margin-bottom: 20px;
+      border-bottom: 1px solid #e4e4e7;
+      padding-bottom: 12px;
     }
     .assessment-container {
-      max-width: 800px;
+      max-width: 760px;
       margin: 0 auto;
-      background: #fff;
+      background: #ffffff;
       padding: 30px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: 1px solid #e4e4e7;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
     .qt-mc-question {
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       padding-bottom: 20px;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid #f4f4f5;
     }
     .qt-question {
-      font-weight: bold;
-      font-size: 15px;
+      font-weight: 600;
+      font-size: 14px;
       margin-bottom: 12px;
-      color: #334155;
+      color: #09090b;
+      line-height: 1.5;
     }
     .gcb-mcq-choice {
       display: flex;
       align-items: center;
-      margin: 8px 0;
-      padding: 6px 10px;
+      margin: 6px 0;
+      padding: 8px 12px;
       border-radius: 6px;
-      background: #f8fafc;
+      background: #fcfcfc;
+      border: 1px solid #f4f4f5;
+      transition: background 0.15s;
+    }
+    .gcb-mcq-choice:hover {
+      background: #f4f4f5;
     }
     .gcb-mcq-choice label {
-      margin-left: 8px;
+      margin-left: 10px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 13px;
+      color: #27272a;
     }
     .gcb-button-primary {
-      background: #2563eb;
-      color: #fff;
-      border: none;
-      padding: 12px 24px;
-      font-size: 14px;
-      font-weight: bold;
+      background: #000000;
+      color: #ffffff;
+      border: 1px solid #000000;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
       border-radius: 6px;
       cursor: pointer;
+      transition: background 0.15s;
+    }
+    .gcb-button-primary:hover {
+      background: #27272a;
     }
   </style>
 </head>
