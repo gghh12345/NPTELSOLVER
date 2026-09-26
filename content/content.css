@@ -1,0 +1,97 @@
+/* NPTEL Pro Solver - In-Page Content Styles */
+
+/* Highlighted Option on NPTEL Page */
+.nptel-pro-highlight-option {
+  position: relative !important;
+  background-color: rgba(16, 185, 129, 0.12) !important;
+  border: 2px solid #10b981 !important;
+  border-radius: 8px !important;
+  padding: 6px 12px !important;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.28) !important;
+  transition: all 0.25s ease-in-out !important;
+}
+
+/* Floating Verification Pill */
+.nptel-pro-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  color: #ffffff !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 2px 8px !important;
+  border-radius: 12px !important;
+  margin-left: 10px !important;
+  vertical-align: middle !important;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.35) !important;
+  animation: nptelBadgeFadeIn 0.3s ease-out !important;
+}
+
+.nptel-pro-badge.ai-badge {
+  background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.35) !important;
+}
+
+/* Inline [ ⚡ Solve with AI ] Button on Question Headers */
+.nptel-pro-inline-solve-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155 !important;
+  border-radius: 6px !important;
+  padding: 4px 10px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  margin-bottom: 8px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+}
+
+.nptel-pro-inline-solve-btn:hover {
+  background: #1e293b !important;
+  border-color: #3b82f6 !important;
+  color: #60a5fa !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2) !important;
+}
+
+.nptel-pro-inline-solve-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* Floating Notification Banner on NPTEL Page */
+#nptel-pro-toast {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 999999 !important;
+  background: #1e293b !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155 !important;
+  border-left: 4px solid #10b981 !important;
+  border-radius: 8px !important;
+  padding: 12px 18px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 13px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  animation: nptelSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@keyframes nptelBadgeFadeIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes nptelSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}

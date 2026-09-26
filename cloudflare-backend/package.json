@@ -1,0 +1,20 @@
+{
+  "name": "nptel-pro-solver-backend",
+  "version": "1.0.0",
+  "description": "Cloudflare Edge Worker + D1 Database backend for NPTEL Pro Solver",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "login": "wrangler login",
+    "dev": "wrangler dev",
+    "create-db": "wrangler d1 create nptel-vault",
+    "init-db": "wrangler d1 execute nptel-vault --remote --file=./schema.sql",
+    "init-db:local": "wrangler d1 execute nptel-vault --local --file=./schema.sql",
+    "set-key": "wrangler secret put GEMINI_API_KEY",
+    "deploy": "wrangler deploy",
+    "quick-setup": "node setup.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^3.114.0"
+  }
+}

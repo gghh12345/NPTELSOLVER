@@ -1,0 +1,13 @@
+name = "nptel-pro-solver-api"
+main = "src/index.js"
+compatibility_date = "2026-03-01"
+
+# Bindings for Cloudflare D1 Database
+[[d1_databases]]
+binding = "DB"
+database_name = "nptel-vault"
+database_id = "acd0b675-c9c8-44e9-a4d5-9c80181a922e"
+
+# Environment Variables (Set secret via: npx wrangler secret put GEMINI_API_KEY)
+[vars]
+ENVIRONMENT = "production"

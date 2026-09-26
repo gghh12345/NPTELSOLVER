@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mock NPTEL Assignment - Test Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      margin: 0;
+      padding: 30px;
+      color: #1e293b;
+    }
+    .gcb-product-headers-large {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0f172a;
+      margin-bottom: 20px;
+    }
+    .assessment-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .qt-mc-question {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .qt-question {
+      font-weight: bold;
+      font-size: 15px;
+      margin-bottom: 12px;
+      color: #334155;
+    }
+    .gcb-mcq-choice {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #f8fafc;
+    }
+    .gcb-mcq-choice label {
+      margin-left: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .gcb-button-primary {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="assessment-container">
+    <div class="gcb-product-headers-large">Problem Solving through Programming in C - Week 4 Assignment</div>
+    
+    <!-- Question 1: In Question Bank (Pointer Size) -->
+    <div class="qt-mc-question qt-embedded">
+      <div class="qt-question">1. What is the size of a pointer to an integer on a 64-bit architecture?</div>
+      <div class="qt-choices">
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q1_a" name="group_q1" value="0">
+          <label for="q1_a">2 bytes</label>
+        </div>
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q1_b" name="group_q1" value="1">
+          <label for="q1_b">4 bytes</label>
+        </div>
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q1_c" name="group_q1" value="2">
+          <label for="q1_c">8 bytes</label>
+        </div>
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q1_d" name="group_q1" value="3">
+          <label for="q1_d">Depends on integer value</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 2: In Question Bank (Dynamic Memory) -->
+    <div class="qt-mc-question qt-embedded">
+      <div class="qt-question">2. Which of the following functions is used to allocate memory dynamically in C without initializing it to zero?</div>
+      <div class="qt-choices">
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q2_a" name="group_q2" value="0">
+          <label for="q2_a">calloc()</label>
+        </div>
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q2_b" name="group_q2" value="1">
+          <label for="q2_b">malloc()</label>
+        </div>
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q2_c" name="group_q2" value="2">
+          <label for="q2_c">realloc()</label>
+        </div>
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q2_d" name="group_q2" value="3">
+          <label for="q2_d">free()</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 3: In Question Bank (BST Complexity) -->
+    <div class="qt-mc-question qt-embedded">
+      <div class="qt-question">3. What is the time complexity of searching an element in a balanced Binary Search Tree (BST) with n nodes?</div>
+      <div class="qt-choices">
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q3_a" name="group_q3" value="0">
+          <label for="q3_a">O(1)</label>
+        </div>
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q3_b" name="group_q3" value="1">
+          <label for="q3_b">O(n)</label>
+        </div>
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q3_c" name="group_q3" value="2">
+          <label for="q3_c">O(log n)</label>
+        </div>
+        <div class="gcb-mcq-choice">
+          <input type="radio" id="q3_d" name="group_q3" value="3">
+          <label for="q3_d">O(n log n)</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 4: Numerical Answer Type (NAT) -->
+    <div class="qt-mc-question qt-embedded">
+      <div class="qt-question">4. [NAT] What is the maximum number of nodes in a binary tree of height 3? (Root is at height 0)</div>
+      <div class="qt-choices" style="padding: 10px 0;">
+        <label for="q4_nat" style="font-size: 14px; font-weight: bold; margin-right: 10px;">Answer:</label>
+        <input type="number" id="q4_nat" name="group_q4" placeholder="Enter calculated value" style="padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; width: 200px;">
+      </div>
+    </div>
+
+    <button type="button" class="gcb-button-primary">Check Answers and Submit</button>
+  </div>
+
+</body>
+</html>
